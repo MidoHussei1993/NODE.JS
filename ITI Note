@@ -1,0 +1,25 @@
+to run js file in cmd by node
+node file.js   or node file
+===========================
+process.stdout.write('using proccess model') : proccess is the global object for node
+like window in javascript
+=====================
+any web apis wait until call stack finish and then go to callback queue and then to callstack
+==========================
+to recive form cmd 
+var userName = process.argv[2] //node file.js ali
+==================================
+REPL : read execute print loop
+.editor: this is mode in REPL to write all code then test
+        ctrl + c : used to cancel
+        ctrl + d to finish my code
+.save : to save all code i have been writen in file         
+ .save newfile.js       
+ .load : to file in REPL
+ ==========================
+ var os = reqiure('os');
+ os.hostName();// the nome of computer
+ if we write os and press Enter
+ we will get evry thing inside this module
+ 
+ 
