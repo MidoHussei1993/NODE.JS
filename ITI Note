@@ -21,5 +21,77 @@ REPL : read execute print loop
  os.hostName();// the nome of computer
  if we write os and press Enter
  we will get evry thing inside this module
+ =================
+ util Module : in core module  
+ prototypical inheritance can be implementing using util.inherits() method 
+
+
+in es5
+we declear to function 
+function user(n,a)
+{ 
+  Person.call(this,n,a)//to make sure the object take all properties
+
+}
+function Person(mn , age){ //constructor
+ this.name = mn;
+ this.age = age
+ this.address = 'ali'
+ }
+ Person.prototype.getName= function(){
+    return this.name;
+    }
+    
+    
+    user.prototype = Person.prototype ; // make user see evry thing in prototype
+    var me = new user('abc',22)
+ 
+ 
+ 
+ in node js
+ var util = require('util);
+ // like make class inherat from anther class
+ util.inherits(user,person)//user.prototype= person.prototype 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  
  
