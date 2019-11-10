@@ -53,6 +53,79 @@ function Person(mn , age){ //constructor
  // like make class inherat from anther class
  util.inherits(user,person)//user.prototype= person.prototype 
  
+ HOW TO MAKE INHERTANCE USING UTIL MODULE
+ 
+ var util = requrire('util');
+ util.inherits(user,person)
+ 
+ ========================================
+ EVENT MODULE;
+ EVER THING IN NODE IS EVENT BASE
+ * all objects that emit events are instances of the eventemitter
+ * these objects expose an eventEmitter.on() function that allows one or more functions to be 
+ attacher to named events emitted by object
+ when the eventemitter objedt emits an event , all of the functions attached to that specific
+ event are called synchronously
+ * any object can become an eventemitter through inheritance using 
+   util.inherits() method or ES6 extebds
+   
+   var myevent = require('events')
+   class eventEmitter extends myevent{}
+   
+   var myeventEmitter = new eventEmitter();
+   
+   myeventEmitter.on('myclick',function(){ // fire more than one time
+      console.log('myclick event fired')
+      }
+       myeventEmitter.once('click',function(){ // fire only one time
+      console.log('myclick event fired')
+      }
+      
+  TO FIRE THE EVENT
+   myeventEmitter.emit('myclick')
+    
+   
+   
+    myeventEmitter.on('myclick',eventHandler)// handeler is function 
+    myeventEmitter.removeListener('myclick',eventHandler)
+     
+   =========================
+   CUSTOM MODULE : - 
+   *creating amodule is easy,just put your javascript code in a separate.js file and
+   include it in your code by using keyword require like
+   var mymodule = require('./mymodule.js');
+   
+   *to require local created module, we have to pass relative path to its.js
+   so nodejs knows that its not going to looking for it in node_module folder
+   
+   
+   var x = 10
+   var nyf = ()=>console.log(10)
+   
+   to get module inside module
+   
+   var nodescope = require(./filname.js')
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+    
  
  
  
