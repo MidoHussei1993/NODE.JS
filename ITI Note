@@ -100,33 +100,98 @@ function Person(mn , age){ //constructor
    
    
    var x = 10
-   var nyf = ()=>console.log(10)
+    var myfunction = ()=>console.log(10)
+   or
+    module.export.myfunction = ()=>console.log(10)
    
    to get module inside module
    
-   var nodescope = require(./filname.js')
+
+   
+   
+   in fileName.js
+   
+   module.exports.x
+   or 
+   module.export.xx = x
    
    
    
+      var nodescope = require(./fileName.js')
+      nodescope.myfunction();
+      nodescope.x;
+   ===============================================================
+   File system module :
+   all its method have asynchronous and synchronous forms
    
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
+   //this happens asynch--> non blocking
+   console.log('start')
+   var fs = require('fs');
+   fs.readFile('filename.txt',function(err,data){
+   console.log('this is a new way to read')
+   console.log('content + data) // data should convert to string
+   });
+    console.log('finish')
     
- 
+    start
+    finshis
+    text from filename
+    
+    ------
+   
+    console.log('start')
+   //to make it synch --> blocking
+   var data = fs.readFileSync('readfile.txt')
+   console.log('this is anew way to read')
+   console.log('content' + data)
+   
+    console.log('finish')
+   
+   
+   start
+   text form filename
+   finish
+   
+  ---------------
+  write in file
+  
+  fs.writeFile('filename.txt','text we want to write in file') // if file is not exist it will create by node
+  fs.writeFilesync('filename.txt','text we want to write in file') // not do any thing untill finish write
+  
+  // this function is fire if any one make change in file
+  // any change will happen to file this function will fire and tell us about the previouse and current value
+  fs.watchFile('filename',function(prev,current){ 
+     console.log('file changed ...')
+  
+  }) 
+   
+=====================================================
+http module :
+var http = require('http')
+http.createServer(function(request , response ){
+response.writeHead(200)
+response.write('welcom to nodejs world')// response body
+response.end(); so client knows it has recived all data
+});
+http.llesten(3000);
+   
+   
+   
+---------------------------
+var http = require('http')
+
+http.createServer(function(req,res){
+  res.writeHead(200 ,{"content-type":"text/plain")
+  res.write('this is text from server')
+  res.end
+}).listen(3000)
+    
+===================
+npm nodemon -g
+
+nodemone server.js
+to create sever 
+
  
  
  
