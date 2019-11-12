@@ -191,19 +191,139 @@ npm nodemon -g
 
 nodemone server.js
 to create sever 
+======================================
+   var http = require(http);
+   var fs = require('fs');
+   
+   var htmlFile = fs.readFile('http.html')
+   var cssFile = fs.readFile('http.css')
+   
+   [
+   http.createServer(function(req,res){
+    fs.readFile('',function(data){
+     res.writeHead(200,{'content-type' : 'text/html'})
+     res.write(data)
+     res.end();
+     })
+   ]  
+     
+     ---------------------
+     
+   [
+     if(req.url === "/http.css")
+     {
+       res.writeHead(200 , {
+        "content-type":"text/css"
+        });
+       res.write(cssFile)
+     }
+     else{
+       res.writeHead(200 , {
+        "content-type":"text/html"
+        });
+       res.write(htmlFile)
+         }
+   
+   
+   ]   
+     
+    http.write();
+    http.end();
+   
+   }).listen(3000)
+ 
+ 
+   
+   ======================================
+   npm init 
+   for initialize package.json
+======================================
+install express
+     
+npm install express
+     
+     
+     
+  var express = require('express');  
+  var http = require('http');     
+  var path = require('path');   
+     
+  http.createServer(app)
+  app.get('/',function(req,res){
+   
+    res.send('this is aresponse from server');
+  
+  })
+  
+  app.get("/abc",function(req,res){
 
+    res.send('this is aresponse from abc');
+    response.sendFile(path.join(__dirname,"http.html"))
+  })
+  
+    app.get('/xyz',function(req,res){
+   
+    res.redirect('/');
+  
+  })
+  
+    app.get('/name/:nm',function(req,res){
+    console.log(req,params.nm)
+    res.redirect('/');
+  
+  })
+     app.get('/abc',function(req,res){
+    var user = req,params.nm 
+    res.send('welcome' + user);
+  
+  })
+  
+ app.post('/name/:nm',function(req,res){
+     response.sendFile(path.join(__dirname,"http.html"))
+  
+  })
+     
+ app.listen(3000)    
+     
+
+   
+  app.post('/name/:nm',function(req,res){
+     response.sendFile(path.join(__dirname,"http.html"))
+  
+  })
  
  
+      
+MIDDEL WARE IN ESPRESS : 
+
+ app.post('/name/:nm',function(req,res,nxt){
+ //can not go to next function untill call nxt()
  
  
+ },function(req,res){
+     response.sendFile(path.join(__dirname,"http.html"))
+  
+  })
+     
+ app.all("/abc",function(req,res,nxt){ /// all for ger or post for abc root
+     
+  });
+  
+  //params middleware
+  app.param('nm',function(req,res,nxt,val){
+  console.log(req.params.nm) == console.log(val);
+  req.params.nm=" ali " // this mean the parameter will be static will be always equal ali
+  nxt();
+  
+  
+  })
+ 
+// build-in middelware
+// tell express whree static file is located
+app.use(express.static("./public")
  
  
- 
- 
- 
- 
- 
- 
+ res.body.nameinform
  
  
  
