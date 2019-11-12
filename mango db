@@ -1,0 +1,105 @@
+from mangodb.com downlod
+
+
+in cmd
+
+* show dbs   // show us list of database on our machine
+
+
+* use databasename  // to crate database and switch to it
+
+* db  //to show you what current page you  in 
+
+
+* db.createUser({           /// to add user to database
+  user:"brad",
+  pwd:"123",
+  roled:["readwrite","dbadmin"
+});
+
+
+* collection is like table in relationship database ( sql ) they just hold decoment or recoerd
+
+* db.crateCollection('customers');  // to add collection to database
+
+* show collections // to show all collection in database
+
+* db.customers.insert({first_name:"john", last_name:"doe"})  // to insert document in customer collection
+
+
+
+* db.customer.find()   // to see list of all document in customer collection
+
+
+*** ID is automaticlly created 
+* db.customers.insert([{first_name:"john", last_name:"doe"},{first_name:"ali", last_name:"mid"}])  // to insert more than
+                                                                                                     one document in customer collection
+
+
+* db.customers.insert([{first_name:"john", last_name:"doe"},{first_name:"ali", last_name:"mid",gender:male}]) // in non-sql we can add more field event not exsist in any anther recored
+
+* db.customer.find().prettey()   // to see list of all document in customer collection but more readable and easy
+
+* db.customer.update({first_name:"john"},{first_name:"mido",last_name:"weke",gender:"male"}) // this will change any document have first name of john
+will chnged to ali ** WATCH : when use update you should add all property if we just write first_name the document
+will not have any property just first_name
+
+الحل   solve by set
+
+* db.customer.update({first_name:"john"},{ $set:{gender:"male"} }) // all property in this document will not change
+just the gender property will become male
+
+* db.customer.update({first_name:"john"},{ $set:{age:45} }) // add property age to document
+
+* db.customer.update({first_name:"john"},{$inc:{age:5}}) // $inc to increment age by 5
+
+
+TO REMOVE A FIELD
+* db.customer.update({first_name:"john"},{$UNSET:{age}}) // TO REMOVE PROPERTY age FROM JOHN DOCUMENT
+
+
+
+IF NOT FIND DOCUMENT CREATE NEW ONE
+* db.customer.update({first_name:"NAME NOT EXIST"},{ $set:{age:45} },{upsert : true}) // if not find document it will create new document
+
+CHANGE PROPERTY NAME
+* db.customer.update({first_name:"john"},{$RENAME:{"gender" : "sex"}})  
+
+REMOVE DOCUMENT
+* db.customer.remove({first_name:"john"},{justone:true}) //delete first document will find it
+
+PASS QUERY
+* db.customer.find({first_name:"ali"})
+
+
+
+* db.customer.find($or:[{first_name:"ali"},{first_name:"mido"}]) // any document have in firstname proerty ali or mido
+
+
+GREATTER AND LESS THAN
+* db.customer.find({age:{$lt:40}})  $lt:less than           $gt:gratter than
+
+
+* db.customer.find().sort({last_name:1}); //to sort resul
+
+* db.customer.find().sort({last_name:-1}).pretty(); //to sort resul
+
+* db.customer.find().count();  // the count of all document
+
+
+* db.customer.find().limit(4);  // first 4 document
+
+* db.customer.find().limit(4).sort({last_name:1}); 
+
+* db.customer.find().forEach(function(doc){print("cystiner Name: " + doc.first_name)})
+
+
+
+
+
+
+
+
+
+
+
